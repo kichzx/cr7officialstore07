@@ -4,6 +4,55 @@
     <meta charset="UTF-8">
     <title>{{ product.name }} | CR7 Store</title>
     <style>
+
+        /* 1. Ensure the main container is centered and responsive */
+.detail-container {
+    display: flex;
+    flex-direction: row; /* Desktop: side-by-side */
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 20px auto;
+    align-items: center;
+}
+
+/* 2. Make the image take its proper space */
+.detail-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+/* 3. MOBILE FIX: The Media Query */
+@media (max-width: 768px) {
+    .detail-container {
+        flex-direction: column; /* Stack image on top of text */
+        width: 90%; /* Give it some breathing room from the edges */
+        text-align: center;
+        padding: 15px;
+    }
+
+    .detail-image img {
+        width: 100%; /* Image takes full width of card */
+        margin-bottom: 15px;
+    }
+
+    .detail-info {
+        width: 100%;
+    }
+
+    .btn-container {
+        width: 100%;
+    }
+
+    /* Make the button look better on mobile */
+    .add-to-cart-btn {
+        width: 100%;
+        padding: 15px;
+    }
+}
         /* Modern Dark Background */
         body {
             margin: 0;
