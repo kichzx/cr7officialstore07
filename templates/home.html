@@ -776,6 +776,50 @@
         }
 
         /* NAVIGATION ALIGNMENT */
+
+        /* Update your main navbar container */
+header, nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    flex-wrap: wrap; /* This allows items to drop to a new line if needed */
+}
+
+/* Fix for the Logo area */
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex: 1; /* Allows logo to take space */
+    text-align: left;
+}
+
+/* Fix for the links container */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+/* MOBILE SPECIFIC TWEAKS */
+@media (max-width: 600px) {
+    header, nav {
+        flex-direction: column; /* Stacks Logo on top of Links */
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        font-size: 0.8rem; /* Smaller text for small screens */
+        justify-content: center;
+        padding: 0;
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+}
         nav {
             background: rgba(15, 12, 41, 0.9);
             backdrop-filter: blur(15px);
