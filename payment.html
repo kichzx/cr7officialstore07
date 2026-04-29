@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Checkout | CR7 Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: white;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+
+        .payment-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        h2 { text-align: center; margin-bottom: 30px; letter-spacing: 2px; }
+
+        .summary-item {
+            display: flex; justify-content: space-between;
+            margin-bottom: 10px; color: #ccc;
+        }
+
+        .total {
+            font-size: 1.5rem; font-weight: bold; color: #00ffcc;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px; margin-top: 15px;
+        }
+
+        .input-group { margin-bottom: 20px; }
+        
+        label { display: block; margin-bottom: 8px; font-size: 0.8rem; color: #888; }
+        
+        input {
+            width: 100%; padding: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px; color: white;
+            box-sizing: border-box; outline: none;
+        }
+
+        .pay-now-btn {
+            width: 100%; padding: 15px;
+            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+            border: none; border-radius: 50px;
+            color: white; font-weight: bold; font-size: 1.1rem;
+            cursor: pointer; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(58, 123, 213, 0.4);
+            margin-top: 20px;
+        }
+
+        .pay-now-btn:hover { transform: translateY(-3px); filter: brightness(1.1); }
+    </style>
+</head>
+<body>
+
+    <div class="payment-card">
+        <h2>SECURE PAYMENT</h2>
+        
+        <div class="summary">
+            {% for item in products %}
+            <div class="summary-item">
+                <span>{{ item.name }}</span>
+                <span>₹{{ item.price }}</span>
+            </div>
+            {% endfor %}
+            <div class="summary-item total">
+                <span>TOTAL AMOUNT</span>
+                <span>₹{{ total_price }}</span>
+            </div>
+        </div>
+
+        <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 30px 0;">
+
+        <form action="#">
+            <div class="input-group">
+                <label>CARDHOLDER NAME</label>
+                <input type="text" placeholder="Cristiano Ronaldo">
+            </div>
+            <div class="input-group">
+                <label>CARD NUMBER</label>
+                <input type="text" placeholder="**** **** **** 0007">
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <div class="input-group" style="flex: 1;">
+                    <label>EXPIRY</label>
+                    <input type="text" placeholder="MM/YY">
+                </div>
+                <div class="input-group" style="flex: 1;">
+                    <label>CVV</label>
+                    <input type="password" placeholder="***">
+                </div>
+            </div>
+            <button type="button" class="pay-now-btn" onclick="alert('Payment Successful! SIUUUUU!')">
+                PAY ₹{{ total_price }} NOW
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
